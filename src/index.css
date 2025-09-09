@@ -1,0 +1,20 @@
+@font-face {
+  font-family: 'HarveyJackson';
+  src: url('./assets/fonts/HarveyJackson.otf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'TheSeasonsBold';
+  src: url('./assets/fonts/TheSeasonsBold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}

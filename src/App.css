@@ -1,0 +1,243 @@
+#root {
+  margin: 0 auto;
+}
+
+.layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Sidebar */
+.gingham-strip {
+  width: 420px;
+  min-width: 420px;
+  height: auto;
+  background-image: url('./assets/gingham.png');
+  background-repeat: repeat;
+  background-size: 300px 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  box-sizing: border-box;
+  padding: 1rem;
+}
+
+.archive-box {
+  background-color: #ffffff;
+  border: 3px solid #9ab0d5;
+  border-radius: 15px;
+  padding: 1rem 1.5rem;
+  margin: 2rem auto 1rem auto;
+  text-align: center;
+  width: 150px;
+}
+
+.archive-text {
+  font-family: 'HarveyJackson', cursive;
+  font-size: 2rem;
+  color: #154c79;
+  font-weight: 100;
+  line-height: 1.1;
+  margin: 0;
+}
+
+/* Nav */
+.sidebar-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+
+.sidebar-nav li {
+  margin: 1rem 0;
+  cursor: pointer;
+  font-family: 'TheSeasonsBold';
+  font-size: 1.5rem;
+  font-weight: 100;
+  color: #154c79;
+  transition: color 0.3s, transform 0.2s;
+}
+
+.sidebar-nav li:hover {
+  color: #9ab0d5;
+  transform: translateX(5px);
+}
+
+.sidebar-nav li.active {
+  color: #213547;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+/* Resume button */
+.resume-btn {
+  display: inline-block;
+  font-family: 'TheSeasonsBold';
+  background-color: #154c79;
+  color: #ffffff;
+  padding: 0.75rem 1rem;
+  margin: 2rem auto;
+  border-radius: 20px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.resume-btn:hover {
+  background-color: #9ab0d5;
+}
+
+/* Social Icons */
+.social-icons {
+  display: flex;
+  gap: 1rem;
+  margin-top: auto;
+}
+
+.icon {
+  font-size: 2rem;
+  color: #154c79;
+  transition: color 0.3s;
+}
+
+.icon:hover {
+  color: #9ab0d5;
+}
+
+/* Content Area */
+.content {
+  flex: 1;
+  font-family: 'TheSeasonsBold';
+  padding: 2rem;
+}
+
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.pill {
+  padding: 0.4rem 1rem;
+  border: 2px solid #9ab0d5;
+  border-radius: 999px;
+  background-color: #fff8f8;
+  color: #333;
+  font-size: 0.95rem;
+  font-weight: 500;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  transition: all 0.25s ease;
+}
+
+.pill:hover {
+  background-color: #fbeef3;
+  border-color: #f29cb4;
+  transform: translateY(-2px);
+}
+
+/* Section Animations */
+.content section {
+  animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Job Card */ 
+
+.job-card {
+  background: #fff8f8;
+  border: 2px solid #9ab0d5;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  text-align: left;
+}
+
+.job-card h3 {
+  margin-top: 0;
+  color: #154c79;
+}
+
+.job-card ul {
+  margin-top: 0.5rem;
+  padding-left: 1.25rem;
+}
+
+/* Project Card */ 
+.project-card {
+  background: #fff8f8;
+  border: 2px solid #9ab0d5;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  text-align: left;
+}
+
+.project-card h3 {
+  margin-top: 0;
+  color: #154c79;
+}
+
+.tech-stack {
+  margin-top: 0.75rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.project-links {
+  margin-top: 1rem;
+}
+
+.project-links a {
+  display: inline-block;
+  margin-right: 1rem;
+  color: #154c79;
+  font-weight: bold;
+  text-decoration: none;
+  border: 1px solid #154c79;
+  padding: 0.4rem 0.8rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.project-links a:hover {
+  background: #154c79;
+  color: white;
+}
+
+/* About Card */
+
+.about-section {
+  background: #fff8f8;
+  border: 2px solid #9ab0d5;
+  border-radius: 12px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  text-align: left;
+  max-width: 1000px;
+}
+
+.about-section h2 {
+  font-family: 'TheSeasons', serif;
+  font-size: 2.2rem;
+  color: #154c79;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.about-section p {
+  font-family: 'Georgia', serif;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #333;
+  margin-bottom: 1.25rem;
+}
