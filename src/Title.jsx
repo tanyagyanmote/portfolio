@@ -6,7 +6,6 @@ export default function Title() {
   const [lightsOn, setLightsOn] = useState(true)
   const toggle = () => setLightsOn(on => !on)
 
-  // Listen for the global "toggle-lights" event from the external hitbox
   useEffect(() => {
     const handler = () => toggle()
     window.addEventListener('toggle-lights', handler)

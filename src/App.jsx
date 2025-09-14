@@ -9,9 +9,7 @@ import Boba from "./Boba";
 import Keys from "./Keys";
 import Camera from "./Camera";
 import Nails from "./Nails";
-import Skills from "./Skills";
-import Projects from "./Projects";
-
+import About from "./About";
 
 function App() {
 
@@ -33,6 +31,7 @@ function App() {
           </div>
         </section>
       </div>
+      <About />  
     </main>
   )
 }

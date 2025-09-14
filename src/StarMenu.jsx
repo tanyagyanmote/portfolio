@@ -1,6 +1,5 @@
-// StarMenu.jsx
 import { useState, useRef, useEffect } from "react";
-import star from "./assets/star.png"; // use your cropped PNG
+import star from "./assets/star.png";
 
 export default function StarMenu() {
   const [open, setOpen] = useState(false);
