@@ -355,3 +355,64 @@ body {
     --q-width: 60%;
   }
 }
+
+/* === Contact / CTA section === */
+.contact { padding: 0; }
+
+.contact__canvas {
+  position: relative;
+  width: 100vw;
+  height: 100vh;     /* fallback */
+  height: 100svh;    /* better on mobile */
+  background-image: var(--cta-bg);
+  background-size: cover;         /* fill, crop if needed */
+  background-position: center;
+  background-repeat: no-repeat;
+
+  border-radius: 0;               /* no rounded edges */
+  box-shadow: none;
+}
+
+.contact__links {
+  position: absolute;
+  left: var(--links-left, 66%);
+  top: var(--links-top, 58%);
+  width: var(--links-width, 60%);
+  transform: translate(-50%, 0);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+
+/* Button style */
+.contact__btn {
+  --ink: #203a53;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 10px 16px;
+  border-radius: 999px;
+  border: 2px solid var(--ink);
+  background: #f8f5f1ee;
+  color: var(--ink);
+  font-weight: 800;
+  text-decoration: none;
+
+  transition: transform .12s ease, background .12s ease, box-shadow .12s ease, border-color .12s;
+}
+.contact__btn:hover { transform: translateY(-1px); background: #fff; box-shadow: 0 6px 16px rgba(0,0,0,.08); }
+.contact__btn:active { transform: translateY(0); }
+.contact__btn:focus-visible { outline: 3px solid rgba(32,58,83,.28); outline-offset: 3px; border-radius: 14px; }
+
+/* Optional brand accents (keep same style, tweak border color) */
+.contact__btn--ln { --ink: #0a66c2; }
+.contact__btn--gh { --ink: #161b22; }
+.contact__btn--email { --ink: #203a53; } /* inky blue */
+  
+/* Mobile: give the row more room */
+@media (max-width: 560px) {
+  .contact__links { width: 90%; left: 60%; top: 31%; }
+  .contact__btn { width: calc(50% - 6px); justify-content: center; }
+}

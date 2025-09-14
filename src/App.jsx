@@ -10,6 +10,7 @@ import Keys from "./Keys";
 import Camera from "./Camera";
 import Nails from "./Nails";
 import About from "./About";
+import Contact from "./Contact";
 
 function App() {
 
@@ -31,7 +32,8 @@ function App() {
           </div>
         </section>
       </div>
-      <About />  
+      <About /> 
+      <Contact /> 
     </main>
   )
 }
