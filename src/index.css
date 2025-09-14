@@ -12,6 +12,21 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'AbhayaLibre-Regular';
+  src: url('./assets/fonts/AbhayaLibre-Regular.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'DK-Cool-Crayon';
+  src: url('./assets/fonts/DK-Cool-Crayon.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+
 html, body {
   margin: 0;
   padding: 0;
