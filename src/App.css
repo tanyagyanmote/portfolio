@@ -416,3 +416,66 @@ body {
   .contact__links { width: 90%; left: 60%; top: 31%; }
   .contact__btn { width: calc(50% - 6px); justify-content: center; }
 }
+
+/* === Extras / Photography === */
+.extras {
+  padding: clamp(48px, 8vh, 80px) 16px;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+}
+.extras__container { max-width: 1100px; width: 100%; text-align: center; }
+.extras__title { margin: 0; font-size: clamp(28px, 4vw, 42px); font-weight: 800; }
+.extras__hint { margin: 6px 0 20px; color: #6b7280; }
+
+/* Camera */
+.camera-horizontal {
+  position: relative;
+  width: 1400px;
+  max-width: 90vw;
+  transform: translate(-10%, -20%);
+  user-select: none;
+}
+
+.camera__img {
+  width: 100%;
+  height: auto;
+  display: block;
+  -webkit-user-drag: none;
+}
+
+/* Screen hitbox sits on top, sized by percentages of the camera box */
+.camera__screen {
+  position: absolute;
+  left: 61%;
+  top: 52%;
+  width: 32%;
+  height: 34%;
+  transform: translate(-105%, -50%);
+  overflow: hidden;
+  border-radius: var(--screen-radius, 8px);
+  border: 0px;
+  display: grid;
+  place-items: center;
+  background: #0b0f12;
+  cursor: pointer;
+  padding: 0;
+  outline: none;
+}
+.camera__screen:focus-visible { box-shadow: 0 0 0 4px rgba(60,120,255,.25); }
+
+.camera__photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Screen "off" overlay */
+.camera__off {
+  color: #cbd5e1;
+  font-size: clamp(12px, 1.5vw, 14px);
+  letter-spacing: .02em;
+  opacity: .9;
+}
+

@@ -29,6 +29,7 @@ export default function StarMenu() {
         <a href="#experience">Experience</a>
         <a href="#about">About</a>
         <a href="#contact">Contact</a>
+        <a href="#extras">Extras</a>
       </nav>
     </div>
   );
