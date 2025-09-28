@@ -1,12 +1,80 @@
-# React + Vite
+anya’s Interactive Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A playful, single-page portfolio built with React + Vite.
+It features an illustrated desk scene with hidden interactions and a Finder-style window that opens your content (About, Projects, Experience, Contact).
 
-Currently, two official plugins are available:
+https://tanyas-portfolio.vercel.app/
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+✨ Features
 
-## Expanding the ESLint configuration
+Interactive desk — click objects (e.g., laptop opens the Finder).
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Finder window UI — clean sections with keyboard & screen-reader support.
+
+“Start here” hint — a star coachmark to help first-time visitors.
+
+Light/Dark styles — polished look in both themes.
+
+Mobile friendly — responsive layout and large tap targets.
+
+Fun Stuff (coming soon)
+A small ⭐ icon in the Finder will open a gallery of personal “extras” (builds, photos). The UI is scaffolded but disabled until content is ready.
+
+🧱 Tech Stack
+
+React (Vite)
+
+CSS only (no UI frameworks)
+
+🗂 Project Structure (simplified)
+src/
+  assets/                # images, icons, fonts
+  components/
+    Finder.jsx          # Finder window + routing between sections
+    StarNote.jsx        # star hint/coachmark (open/close note)
+    /* (Fun Stuff components will live here) */
+  pages/
+    About.jsx
+    Projects.jsx
+    Experience.jsx
+    Contact.jsx
+  App.jsx
+  main.jsx
+  App.css
+public/
+  favicon.ico
+
+▶️ Getting Started (local dev)
+
+Requirements: Node 18+ and npm (or pnpm/yarn).
+
+# install deps
+npm install
+
+# start dev server
+npm run dev
+
+# build for production
+npm run build
+
+# preview the production build locally
+npm run preview
+
+🚀 Deploying (Vercel)
+
+Push to GitHub.
+
+In Vercel: New Project → Import Git repo.
+
+Framework Preset: Vite (auto-detected).
+
+Build command: npm run build
+Output dir: dist
+
+Deploy.
+
+Custom domain: Vercel project → Settings → Domains → Add.
+Project name / URL: Vercel project → Settings → General → Name.
+
+Note on case-sensitive imports:
+If you see Could not resolve "./Desk" from "src/App.jsx", make sure the file name and import match exactly (e.g., import Desk from "./Desk.jsx" when the file is Desk.jsx). GitHub + Vercel builds are case-sensitive.
