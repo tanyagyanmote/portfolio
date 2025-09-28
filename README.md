@@ -1,4 +1,4 @@
-anya’s Interactive Portfolio
+Tanya’s Interactive Portfolio
 
 A playful, single-page portfolio built with React + Vite.
 It features an illustrated desk scene with hidden interactions and a Finder-style window that opens your content (About, Projects, Experience, Contact).
