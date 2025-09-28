@@ -5,49 +5,63 @@ export default function StarNote() {
   const [open, setOpen] = useState(false);
   const btnRef = useRef(null);
   const boxRef = useRef(null);
+  const closeTimer = useRef(null);
 
-  // (optional) auto-open once per browser using localStorage
+  // open on every load, then auto-close after 10s
   useEffect(() => {
-    const seen = localStorage.getItem("starHintSeen");
-    if (!seen) {
-      setOpen(true);
-      localStorage.setItem("starHintSeen", "1");
-    }
+    setOpen(true);
+    closeTimer.current = setTimeout(() => setOpen(false), 10000);
+    return () => clearTimeout(closeTimer.current);
   }, []);
 
-  // close if clicked outside the bubble
+  // close if clicking outside the bubble
   useEffect(() => {
     const onDocClick = (e) => {
       if (!open) return;
       if (!btnRef.current?.contains(e.target) && !boxRef.current?.contains(e.target)) {
         setOpen(false);
+        clearTimeout(closeTimer.current);
       }
     };
     document.addEventListener("click", onDocClick);
     return () => document.removeEventListener("click", onDocClick);
   }, [open]);
 
+  const handleToggle = () => {
+    setOpen((o) => {
+      const next = !o;
+      clearTimeout(closeTimer.current);
+      if (next) {
+        // if user re-opens, give them another 10s
+        closeTimer.current = setTimeout(() => setOpen(false), 10000);
+      }
+      return next;
+    });
+  };
+
   return (
-    <div className="star-menu">{/* uses your existing positioning */} 
+    <div className="star-menu">
       <button
         ref={btnRef}
         className="star-btn"
-        onClick={() => setOpen((o) => !o)}
+        onClick={handleToggle}
         aria-label="Show hint"
+        aria-controls="starNote"
+        aria-expanded={open}
         title="Hint"
       >
         <img src={star} alt="" />
       </button>
 
-      {/* note bubble instead of a menu */}
       <div
+        id="starNote"
         ref={boxRef}
         className={`star-note ${open ? "open" : ""}`}
         role="status"
         aria-live="polite"
       >
-        💡 Main portfolio is inside the <b>laptop</b>.  
-        The rest of the desk is interactive too — try clicking around!
+        💡 Main portfolio is inside the <b>laptop</b>. The rest of the desk is
+        interactive too — try clicking around!
       </div>
     </div>
   );
