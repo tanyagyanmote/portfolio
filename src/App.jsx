@@ -9,9 +9,11 @@ import Boba from "./Boba";
 import Keys from "./Keys";
 import Camera from "./Camera";
 import Nails from "./Nails";
-import About from "./About";
-import Contact from "./Contact";
-import Extras from "./Extras";
+import Phone from "./Phone";
+import Journal from "./Journal";
+import Sunglasses from "./Sunglasses";
+import JewelryBox from "./JewelryBox";
+import Flowers from "./Flowers";
 
 
 function App() {
@@ -23,20 +25,32 @@ function App() {
           <StarMenu />
           <Title />
           <LightsHitbox /> 
-          <div className="desk-area">
-            <Desk />
-            <Laptop />
-            <Boba stepMs={500} />
-            <Headphones />
-            <Keys />
-            <Camera/>
-            {/* <Nails /> */}
+          <div className="desk-scale">
+            <div className="desk-area">
+              {/* <div className="desk-stage"> */}
+                <Desk />
+                <Laptop />
+                <Boba stepMs={500} />
+                <Headphones />
+                <Keys />
+                <Camera />
+                <Nails />
+                <Phone />
+                <Sunglasses />
+                <JewelryBox />
+                <Flowers />
+                <Journal />
+              {/* </div> */}
+            </div>
           </div>
+
         </section>
       </div>
+      {/* <Projects />
+      <Experience />
       <About /> 
       <Contact /> 
-      <Extras />
+      <Extras /> */}
     </main>
   )
 }

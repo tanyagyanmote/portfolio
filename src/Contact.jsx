@@ -1,67 +1,112 @@
 // Contact.jsx
-import ctaImg from "./assets/Contact.png";
+import { useMemo, useState } from "react";
+import { FaEnvelope, FaLinkedin, FaGithub } from "react-icons/fa";
 
 export default function Contact() {
+  const [form, setForm] = useState({ name: "", email: "", message: "" });
+
+  const mailtoHref = useMemo(() => {
+    const to = "tanya.gyanmote@gmail.com";
+    const subject = encodeURIComponent(`Portfolio message from ${form.name || "—"}`);
+    const body = encodeURIComponent(
+      `Name: ${form.name}\nEmail: ${form.email}\n\n${form.message}`
+    );
+    return `mailto:${to}?subject=${subject}&body=${body}`;
+  }, [form]);
+
+  const onChange = (e) => setForm((f) => ({ ...f, [e.target.name]: e.target.value }));
+  const valid =
+    form.name.trim() && /\S+@\S+\.\S+/.test(form.email) && form.message.trim();
+
   return (
-    <section id="contact" className="contact">
-      <div
-        className="contact__canvas"
-        style={{ "--cta-bg": `url(${ctaImg})` }}
-        aria-label="Let's work together"
-      >
-        <nav className="contact__links" aria-label="Contact links">
-          <a
-            className="contact__btn contact__btn--email"
-            href="mailto:tanyagyanmote@gmail.com"
-            aria-label="Email Tanya"
-          >
-            <EmailIcon /> Email
-          </a>
+    <div className="contact-wrap">
+      <header className="contact-hero">
+        <h1 className="contact-title">let’s talk</h1>
+        <p className="contact-sub">Reach out for collabs, roles, or questions.</p>
+      </header>
 
+      <section className="contact-grid">
+        {/* Left: quick links */}
+        <nav className="contact-links" aria-label="Quick links">
+          <a href="mailto:tanya.gyanmote@gmail.com" className="contact-link">
+            <FaEnvelope className="contact-icon" />
+            <span>tanya.gyanmote@gmail.com</span>
+          </a>
           <a
-            className="contact__btn contact__btn--ln"
-            href="https://www.linkedin.com/in/tanyagyanmote/"
+            href="https://linkedin.com/in/tanyagyanmote"
             target="_blank"
-            rel="noreferrer noopener"
-            aria-label="Tanya on LinkedIn"
+            rel="noreferrer"
+            className="contact-link"
           >
-            <LinkedInIcon /> LinkedIn
+            <FaLinkedin className="contact-icon" />
+            <span>linkedin.com/in/tanyagyanmote</span>
           </a>
-
           <a
-            className="contact__btn contact__btn--gh"
             href="https://github.com/tanyagyanmote"
             target="_blank"
-            rel="noreferrer noopener"
-            aria-label="Tanya on GitHub"
+            rel="noreferrer"
+            className="contact-link"
           >
-            <GitHubIcon /> GitHub
+            <FaGithub className="contact-icon" />
+            <span>github.com/tanyagyanmote</span>
           </a>
         </nav>
-      </div>
-    </section>
-  );
-}
 
-/* Tiny inline SVGs (no extra files needed) */
-function EmailIcon() {
-  return (
-    <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
-      <path fill="currentColor" d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 4-8 5L4 8V6l8 5 8-5v2Z"/>
-    </svg>
-  );
-}
-function LinkedInIcon() {
-  return (
-    <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
-      <path fill="currentColor" d="M4.98 3.5A2.5 2.5 0 1 1 2.5 6a2.5 2.5 0 0 1 2.48-2.5ZM3 8.5h4v12H3zM9 8.5h3.8v1.7h.05c.53-.95 1.82-1.95 3.75-1.95 4 0 4.75 2.64 4.75 6.07v6.18h-4v-5.48c0-1.31-.02-3-1.83-3-1.83 0-2.11 1.43-2.11 2.9v5.58H9z"/>
-    </svg>
-  );
-}
-function GitHubIcon() {
-  return (
-    <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
-      <path fill="currentColor" d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.17-3.37-1.17-.46-1.16-1.12-1.47-1.12-1.47-.92-.64.07-.63.07-.63 1.02.07 1.56 1.05 1.56 1.05.91 1.55 2.4 1.1 2.98.85.09-.66.36-1.1.65-1.35-2.22-.25-4.56-1.11-4.56-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.57 9.57 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.85-2.34 4.68-4.57 4.93.37.32.7.94.7 1.9v2.81c0 .27.18.58.69.48A10 10 0 0 0 12 2Z"/>
-    </svg>
+        {/* Right: mailto form */}
+        <form
+          className="contact-form"
+          onSubmit={(e) => {
+            e.preventDefault();
+            if (valid) window.location.href = mailtoHref;
+          }}
+        >
+          <label className="field">
+            <span className="field-label">name</span>
+            <input
+              name="name"
+              value={form.name}
+              onChange={onChange}
+              placeholder="your name"
+              required
+            />
+          </label>
+
+          <label className="field">
+            <span className="field-label">email</span>
+            <input
+              type="email"
+              name="email"
+              value={form.email}
+              onChange={onChange}
+              placeholder="you@example.com"
+              required
+            />
+          </label>
+
+          <label className="field">
+            <span className="field-label">message</span>
+            <textarea
+              name="message"
+              rows={6}
+              value={form.message}
+              onChange={onChange}
+              placeholder=".…"
+              required
+            />
+          </label>
+
+          <div className="contact-actions">
+            <a
+              className={`send-btn ${valid ? "" : "is-disabled"}`}
+              href={valid ? mailtoHref : undefined}
+              onClick={(e) => !valid && e.preventDefault()}
+            >
+              send email
+            </a>
+            <span className="contact-hint">opens your default mail app</span>
+          </div>
+        </form>
+      </section>
+    </div>
   );
 }
