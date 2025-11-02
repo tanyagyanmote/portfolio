@@ -1029,7 +1029,7 @@
   @media (max-width: 700px) {
     .finder-window { width: min(640px, 96vw); }
     .finder-content { padding: 18px 20px; }
-    .home-icons { grid-template-columns: repeat(3, minmax(80px, 1fr)); }
+    .home-icons { grid-template-columns: repeat(2, minmax(80px, 1fr)); }
   }
   
   @media (max-width: 800px) {
@@ -1043,7 +1043,7 @@
     .intro-name { font-size: clamp(36px, 10vw, 56px); }
     .intro-sub { font-size: clamp(14px, 3.8vw, 18px); margin-top: 8px; }
     .home-icons {
-      grid-template-columns: repeat(3, minmax(80px, 1fr));
+      grid-template-columns: repeat(2, minmax(80px, 1fr));
       gap: 16px;
       margin: 16px auto 8px;
     }
