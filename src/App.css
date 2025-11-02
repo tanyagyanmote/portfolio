@@ -650,7 +650,7 @@
   
   .home-icons {
     display: grid;
-    grid-template-columns: repeat(2, minmax(140px, 1fr)); /* was 5 columns */
+    grid-template-columns: repeat(4, minmax(100px, 1fr));
     gap: clamp(16px, 2.5vw, 36px);
     max-width: 880px;
     margin: clamp(40px, 6vh, 60px) auto 0;
