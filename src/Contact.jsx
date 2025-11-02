@@ -101,9 +101,9 @@ export default function Contact() {
               href={valid ? mailtoHref : undefined}
               onClick={(e) => !valid && e.preventDefault()}
             >
-              send email
+              FEATURE NOT SET UP YET
             </a>
-            <span className="contact-hint">opens your default mail app</span>
+            {/* <span className="contact-hint">opens your default mail app</span> */}
           </div>
         </form>
       </section>

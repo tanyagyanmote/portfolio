@@ -58,7 +58,7 @@ export default function Finder({ onClose }) {
     { id: "Projects",  label: "projects",  Icon: FaFolderOpen,  onClick: () => setActive("Projects") },
     { id: "Experience",label: "experience",Icon: FaBriefcase,   onClick: () => setActive("Experience") },
     { id: "Contact",   label: "contact",   Icon: FaEnvelope,    onClick: () => setActive("Contact") },
-    { id: "Links",     label: "links",     Icon: FaLink,        onClick: () => window.open("https://linktr.ee/tgyanmot","_blank") },
+    // { id: "Links",     label: "links",     Icon: FaLink,        onClick: () => window.open("https://linktr.ee/tgyanmot","_blank") },
   ];
 
   const overlay = (
